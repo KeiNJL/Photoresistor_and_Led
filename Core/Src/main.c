@@ -26,7 +26,6 @@
 /* USER CODE BEGIN Includes */
 uint32_t adc = 0;
 uint32_t pwm_value = 0;
-uint32_t step = 0;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,7 +51,7 @@ uint32_t step = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void setPWM(uint16_t pwm_value);
+//void setPWM(uint16_t pwm_value);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -107,17 +106,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_ADC_Start(&hadc1);
-	  	  HAL_ADC_PollForConversion(&hadc1, 500);
-	  	  HAL_ADC_ConvCpltCallback(&hadc1);
-	  	  HAL_ADC_Stop(&hadc1);
-
-	  	 if (pwm_value == 0) step = 1;
-	  	 	 if(pwm_value == 499) step = -1;
-	  	 	 pwm_value += step;
-	  	 	 setPWM(pwm_value);
-	  	 	 HAL_Delay(5);
-
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, adc/2.2);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -170,17 +159,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void setPWM(uint16_t value)
-{
-    TIM_OC_InitTypeDef sConfigOC;
 
-    sConfigOC.OCMode = TIM_OCMODE_PWM1;
-    sConfigOC.Pulse = value;
-    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-    HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-}
 /* USER CODE END 4 */
 
 /**

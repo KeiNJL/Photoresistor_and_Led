@@ -1,6 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
 ADC1.Channel-1\#ChannelRegularConversion=ADC_CHANNEL_2
-ADC1.IPParameters=Rank-1\#ChannelRegularConversion,master,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,NbrOfConversionFlag
+ADC1.ContinuousConvMode=ENABLE
+ADC1.IPParameters=Rank-1\#ChannelRegularConversion,master,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,NbrOfConversionFlag,ContinuousConvMode
 ADC1.NbrOfConversionFlag=1
 ADC1.Rank-1\#ChannelRegularConversion=1
 ADC1.SamplingTime-1\#ChannelRegularConversion=ADC_SAMPLETIME_41CYCLES_5
@@ -114,7 +115,7 @@ TIM1.Channel-PWM\ Generation3\ CH3=TIM_CHANNEL_3
 TIM1.IPParameters=Channel-PWM Generation3 CH3,Prescaler,Period,AutoReloadPreload,Pulse-PWM Generation3 CH3
 TIM1.Period=500
 TIM1.Prescaler=1000
-TIM1.Pulse-PWM\ Generation3\ CH3=750
+TIM1.Pulse-PWM\ Generation3\ CH3=250
 VP_SYS_VS_Systick.Mode=SysTick
 VP_SYS_VS_Systick.Signal=SYS_VS_Systick
 VP_TIM1_VS_ClockSourceINT.Mode=Internal
