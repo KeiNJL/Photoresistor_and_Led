@@ -105,7 +105,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, adc/2.2);
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 1500 - (adc/2.2));
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
