@@ -25,7 +25,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 uint32_t adc = 0;
-uint32_t pwm_value = 0;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
